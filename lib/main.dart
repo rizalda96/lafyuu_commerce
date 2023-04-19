@@ -17,17 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-      title: "Application",
-      initialRoute: Routes.LOGIN,
-      getPages: AppPages.routes,
-    );
+    // return GetMaterialApp(
+    //   theme: ThemeData(
+    //     textTheme: GoogleFonts.poppinsTextTheme(
+    //       Theme.of(context).textTheme,
+    //     ),
+    //   ),
+    //   debugShowCheckedModeBanner: false,
+    //   title: "Application",
+    //   initialRoute: Routes.LOGIN,
+    //   getPages: AppPages.routes,
+    // );
 
     return FutureBuilder(
         future: Future.delayed(
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
             title: "Application",
-            initialRoute: Routes.HOME,
+            initialRoute: Routes.LOGIN,
             getPages: AppPages.routes,
           );
         });

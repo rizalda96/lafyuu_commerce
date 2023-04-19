@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:lafyuu_ecommerce/app/contrants/colors.dart';
+import 'package:lafyuu_ecommerce/app/modules/widgets/_auth_header.dart';
+import 'package:lafyuu_ecommerce/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -14,29 +16,9 @@ class LoginView extends GetView<LoginController> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
-          SizedBox(height: Get.width * .15),
-          SvgPicture.asset('assets/logo/main_logo_blue.svg'),
-          const SizedBox(height: 20),
-          Column(
-            children: const [
-              Text(
-                'Welcome to Lafyuu',
-                style: TextStyle(
-                  color: appBlue,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(height: 5),
-              Text(
-                'Sign in to continue',
-                style: TextStyle(
-                  color: appGrey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
+          const AuthHeader(
+            titleHeader: 'Welcome to Lafyuu',
+            subTitleHeader: 'Sign in to continue',
           ),
           const SizedBox(height: 40),
           TextField(
@@ -218,8 +200,8 @@ class LoginView extends GetView<LoginController> {
               const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Don’t have a account? ',
                     style: TextStyle(
                       color: appGrey,
@@ -227,18 +209,21 @@ class LoginView extends GetView<LoginController> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  Text(
-                    'Register',
-                    style: TextStyle(
-                      color: appBlueSoft,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                  InkWell(
+                    onTap: () => Get.toNamed(Routes.REGISTER),
+                    child: const Text(
+                      'Register',
+                      style: TextStyle(
+                        color: appBlueSoft,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ],
               ),
             ],
-          )
+          ),
         ],
       ),
     );
